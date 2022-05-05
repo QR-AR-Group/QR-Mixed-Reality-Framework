@@ -1,0 +1,62 @@
+\documentclass{beamer}
+
+% german content
+\usepackage[ngerman]{babel}
+
+% images
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+
+\title{QR-Mixed-Reality-Framework}
+\subtitle{github.com/QR-AR-Group/QR-Mixed-Reality-Framework}
+\author{
+  Adrian \
+  Jonathan Neidel \
+  Leon Enzenberger
+}
+\date{July 2022}
+\institute{HTW Berlin, Angewandte Informatik, AR Applications and Theoretical Foundations}
+\logo{\includegraphics[width=1cm]{htw-logo}}
+
+% theme + color theme
+\usetheme{Szeged}
+\usecolortheme{whale}
+% see: https://deic-web.uab.cat/~iblanes/beamer_gallery/index.html
+\setbeamerfont{caption}{size=\Tiny}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}
+  \frametitle{What is authentication?}
+
+  credentials check
+
+  \bigskip
+
+  Answering: Who are you?
+\end{frame}
+
+\begin{frame}
+  \frametitle{Abstract process}
+
+  user fills form with username, password
+  \begin{enumerate}
+    \item \begin{itemize}
+      \item 401 (Authentication failed)
+    \end{itemize}
+    \item \begin{itemize}
+      \item 200 (OK)
+      \item response includes a session token
+      \item set as a cookie
+      \item subsequent http requests include the token
+    \end{itemize}
+  \end{enumerate}
+\end{frame}
+
+% \begin{frame}
+%   \frametitle{Session}
+%     \includegraphics[width=11cm]{session}
+% \end{frame}
+
+\end{document}
