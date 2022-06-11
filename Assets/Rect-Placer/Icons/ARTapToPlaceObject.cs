@@ -7,25 +7,26 @@ using UnityEngine.XR.ARSubsystems;
 
 public class ARTapToPlaceObject : MonoBehaviour
 {
-    public GameObject placementIndicator;
+    public GameObject primaryIndicator;
+    public GameObject secondaryIndicator;
     public GameObject placementPlane;
 
     private ARRaycastManager arRaycastManager;
     private Pose placementPose;
     private bool placementPoseIsValid = false;
 
-    private Pose initialMarker;
     private bool touching;
 
     void Start()
     {
         arRaycastManager = FindObjectOfType<ARRaycastManager>();
+        placementPlane.SetActive(false);
     }
 
     void Update()
     {
         UpdatePlacementPose();
-        UpdatePlacementIndicator();
+        UpdateprimaryIndicator();
         ReactToTouch();
     }
 
@@ -35,15 +36,25 @@ public class ARTapToPlaceObject : MonoBehaviour
         {
             if (!touching)
             {
-                initialMarker = placementPose;
-                placementPlane.SetActive(true);
-                placementPlane.transform.SetPositionAndRotation(
+                secondaryIndicator.SetActive(true);
+
+                secondaryIndicator.transform.SetPositionAndRotation(
                     placementPose.position,
                     placementPose.rotation
                 );
-                placementPlane.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+
                 touching = true;
             }
+
+            placementPlane.SetActive(true);
+            
+            Vector3 position = Vector3.Lerp(secondaryIndicator.transform.position, primaryIndicator.transform.position, 0.5f);
+
+            placementPlane.transform.SetPositionAndRotation(
+                position,
+                secondaryIndicator.transform.rotation
+            );
+            placementPlane.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
         }
         else
         {
@@ -51,19 +62,19 @@ public class ARTapToPlaceObject : MonoBehaviour
         }
     }
 
-    private void UpdatePlacementIndicator()
+    private void UpdateprimaryIndicator()
     {
         if (placementPoseIsValid)
         {
-            placementIndicator.SetActive(true);
-            placementIndicator.transform.SetPositionAndRotation(
+            primaryIndicator.SetActive(true);
+            primaryIndicator.transform.SetPositionAndRotation(
                 placementPose.position,
                 placementPose.rotation
             );
         }
         else
         {
-            placementIndicator.SetActive(false);
+            primaryIndicator.SetActive(false);
         }
     }
 
@@ -116,6 +127,6 @@ public class ARTapToPlaceObject : MonoBehaviour
     {
         GUIStyle guiStyle = new GUIStyle();
         guiStyle.fontSize = 50;
-        // GUILayout.Label(" Hello ", guiStyle);
+        GUILayout.Label(" ", guiStyle);
     }
 }
