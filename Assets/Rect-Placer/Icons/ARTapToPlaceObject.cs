@@ -8,6 +8,7 @@ using UnityEngine.XR.ARSubsystems;
 public class ARTapToPlaceObject : MonoBehaviour
 {
     public GameObject placementIndicator;
+    public GameObject placementPlane;
 
     private ARRaycastManager arRaycastManager;
     private Pose placementPose;
@@ -15,7 +16,6 @@ public class ARTapToPlaceObject : MonoBehaviour
 
     private Pose initialMarker;
     private bool touching;
-    private Rect rect;
 
     void Start()
     {
@@ -36,10 +36,17 @@ public class ARTapToPlaceObject : MonoBehaviour
             if (!touching)
             {
                 initialMarker = placementPose;
+                placementPlane.SetActive(true);
+                placementPlane.transform.SetPositionAndRotation(
+                    placementPose.position,
+                    placementPose.rotation
+                );
+                placementPlane.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
                 touching = true;
             }
-
-        } else {
+        }
+        else
+        {
             touching = false;
         }
     }
@@ -109,7 +116,6 @@ public class ARTapToPlaceObject : MonoBehaviour
     {
         GUIStyle guiStyle = new GUIStyle();
         guiStyle.fontSize = 50;
-        GUILayout.Label(" " + touching, guiStyle);
-        GUILayout.Label(" " + initialMarker.up, guiStyle);
+        // GUILayout.Label(" Hello ", guiStyle);
     }
 }
