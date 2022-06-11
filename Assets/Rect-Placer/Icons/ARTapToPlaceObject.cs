@@ -10,6 +10,7 @@ public class ARTapToPlaceObject : MonoBehaviour
     public GameObject primaryIndicator;
     public GameObject secondaryIndicator;
     public GameObject placementPlane;
+    public LineRenderer lineRenderer;
 
     private ARRaycastManager arRaycastManager;
     private Pose placementPose;
@@ -20,6 +21,7 @@ public class ARTapToPlaceObject : MonoBehaviour
     void Start()
     {
         arRaycastManager = FindObjectOfType<ARRaycastManager>();
+        placementPlane.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
         placementPlane.SetActive(false);
     }
 
@@ -49,12 +51,18 @@ public class ARTapToPlaceObject : MonoBehaviour
             placementPlane.SetActive(true);
             
             Vector3 position = Vector3.Lerp(secondaryIndicator.transform.position, primaryIndicator.transform.position, 0.5f);
-
             placementPlane.transform.SetPositionAndRotation(
                 position,
                 secondaryIndicator.transform.rotation
             );
-            placementPlane.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+            
+            Vector3 diagonal = secondaryIndicator.transform.InverseTransformPoint(primaryIndicator.transform.position);
+            Vector3 right = new Vector3(diagonal.x, 0, 0);
+            Vector3 worldRight = secondaryIndicator.transform.TransformPoint(right);
+            Vector3 down = new Vector3(0, 0, diagonal.z);
+            Vector3 worldDown = secondaryIndicator.transform.TransformPoint(down);
+
+            placementPlane.transform.localScale = new Vector3(right.x, 0, down.z);
         }
         else
         {
