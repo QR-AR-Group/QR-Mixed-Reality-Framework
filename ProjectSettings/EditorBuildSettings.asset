@@ -6,12 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Square-Span.unity
+    path: Assets/Scenes/QRScanner.unity
+    guid: 44e59c229935ac646a76cae2c43f3f07
+  - enabled: 1
+    path: Assets/Scenes/Rect-Placement.unity
     guid: c4e005b72b5d728478c9004467b37b0a
   m_configObjects:
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: 744b813df90924c169af73489b8325de,
       type: 2}
-    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 89a6d18d3df8d3e4fa917b0f9a963bc0,
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 3dc8ea62096cdb74c939df3911dd1b1e,
       type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: a681a6ee73879b340bf189af24a0e6a8,
       type: 2}
