@@ -10,7 +10,6 @@ public class ARTapToPlaceObject : MonoBehaviour
     public GameObject primaryIndicator;
     public GameObject secondaryIndicator;
     public GameObject placementPlane;
-    public LineRenderer lineRenderer;
 
     private ARRaycastManager arRaycastManager;
     private Pose placementPose;
@@ -21,7 +20,6 @@ public class ARTapToPlaceObject : MonoBehaviour
     void Start()
     {
         arRaycastManager = FindObjectOfType<ARRaycastManager>();
-        placementPlane.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
         placementPlane.SetActive(false);
     }
 
@@ -38,47 +36,50 @@ public class ARTapToPlaceObject : MonoBehaviour
         {
             if (!touching)
             {
-                secondaryIndicator.SetActive(true);
-
-                secondaryIndicator.transform.SetPositionAndRotation(
-                    placementPose.position,
-                    placementPose.rotation
-                );
-
+                setActiveAndRotateToPlacementPost(secondaryIndicator);
                 touching = true;
             }
 
             placementPlane.SetActive(true);
-            
-            Vector3 position = Vector3.Lerp(secondaryIndicator.transform.position, primaryIndicator.transform.position, 0.5f);
+
+            // Set Plane position to midpoint between first and second placement indicator
+            Vector3 position = Vector3.Lerp(
+                secondaryIndicator.transform.position,
+                primaryIndicator.transform.position,
+                0.5f
+            );
             placementPlane.transform.SetPositionAndRotation(
                 position,
                 secondaryIndicator.transform.rotation
             );
-            
-            Vector3 diagonal = secondaryIndicator.transform.InverseTransformPoint(primaryIndicator.transform.position);
-            Vector3 right = new Vector3(diagonal.x, 0, 0);
-            Vector3 worldRight = secondaryIndicator.transform.TransformPoint(right);
-            Vector3 down = new Vector3(0, 0, diagonal.z);
-            Vector3 worldDown = secondaryIndicator.transform.TransformPoint(down);
 
-            placementPlane.transform.localScale = new Vector3(right.x, 0, down.z);
+            // Find Cornerpoints of square and scale the Square accodingly
+            Vector3 diagonal = secondaryIndicator.transform.InverseTransformPoint(
+                primaryIndicator.transform.position
+            );
+            placementPlane.transform.localScale = new Vector3(diagonal.x, 1, diagonal.z);
+
+            // Rotate primaryPlacementIndicator in same direction as the secondary
+            primaryIndicator.transform.rotation = secondaryIndicator.transform.rotation;
         }
         else
         {
+            secondaryIndicator.SetActive(false);
             touching = false;
         }
+    }
+
+    private void setActiveAndRotateToPlacementPost(GameObject indicator)
+    {
+        indicator.SetActive(true);
+        indicator.transform.SetPositionAndRotation(placementPose.position, placementPose.rotation);
     }
 
     private void UpdateprimaryIndicator()
     {
         if (placementPoseIsValid)
         {
-            primaryIndicator.SetActive(true);
-            primaryIndicator.transform.SetPositionAndRotation(
-                placementPose.position,
-                placementPose.rotation
-            );
+            setActiveAndRotateToPlacementPost(primaryIndicator);
         }
         else
         {
