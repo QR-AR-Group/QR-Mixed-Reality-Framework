@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
-public class ARTapToPlaceObject : MonoBehaviour
+public class Placement : MonoBehaviour
 {
     public GameObject primaryIndicator;
     public GameObject secondaryIndicator;
