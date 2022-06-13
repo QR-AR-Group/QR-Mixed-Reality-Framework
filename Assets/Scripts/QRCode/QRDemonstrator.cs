@@ -19,6 +19,7 @@ public class QRDemonstrator : MonoBehaviour
         if (!qRString.Equals(text))
         {
             qRString = text;
+            // encoding should be done asynchronically
             qrCode = encoder.Encode(qRString);
         }
     }
