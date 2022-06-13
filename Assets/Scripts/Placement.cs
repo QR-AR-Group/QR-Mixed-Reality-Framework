@@ -95,7 +95,7 @@ public class Placement : MonoBehaviour
         arRaycastManager.Raycast(screenCenter, hits, TrackableType.Planes);
 
         placementPoseIsValid = hits.Count > 0;
-        Debug.Log(placementPoseIsValid);
+        //Debug.Log(placementPoseIsValid);
         if (placementPoseIsValid)
         {
             placementPose = hits[0].pose;
