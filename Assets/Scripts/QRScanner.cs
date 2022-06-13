@@ -8,6 +8,8 @@ using UnityEngine.XR.ARSubsystems;
 
 public class QRScanner : MonoBehaviour
 {
+    public QRDemonstrator demonstrator;
+
     private IBarcodeReader reader;
     private ARCameraManager aRCamera;
     private Texture2D arCameraTexture;
@@ -35,13 +37,15 @@ public class QRScanner : MonoBehaviour
 
     IEnumerator ProcessQRCode(XRCpuImage image)
     {
-        var request = image.ConvertAsync(new XRCpuImage.ConversionParams
-        {
-            inputRect = new RectInt(0, 0, image.width, image.height),
-            outputDimensions = new Vector2Int(image.width / 2, image.height / 2),
-            outputFormat = TextureFormat.RGB24,
-            transformation = XRCpuImage.Transformation.MirrorY
-        });
+        var request = image.ConvertAsync(
+            new XRCpuImage.ConversionParams
+            {
+                inputRect = new RectInt(0, 0, image.width, image.height),
+                outputDimensions = new Vector2Int(image.width / 2, image.height / 2),
+                outputFormat = TextureFormat.RGB24,
+                transformation = XRCpuImage.Transformation.MirrorY
+            }
+        );
 
         while (!request.status.IsDone())
             yield return null;
@@ -62,7 +66,8 @@ public class QRScanner : MonoBehaviour
                 request.conversionParams.outputDimensions.x,
                 request.conversionParams.outputDimensions.y,
                 request.conversionParams.outputFormat,
-                false);
+                false
+            );
         }
 
         arCameraTexture.LoadRawTextureData(rawData);
@@ -81,6 +86,8 @@ public class QRScanner : MonoBehaviour
         {
             doOnce = true;
             result = reader.Decode(source).Text;
+
+            demonstrator.Receive(result);
         }
         else
         {
@@ -92,6 +99,6 @@ public class QRScanner : MonoBehaviour
     {
         GUIStyle guiStyle = new GUIStyle();
         guiStyle.fontSize = 50;
-        GUILayout.Label(" " + result, guiStyle);
+        // GUILayout.Label(" ", guiStyle);
     }
 }
