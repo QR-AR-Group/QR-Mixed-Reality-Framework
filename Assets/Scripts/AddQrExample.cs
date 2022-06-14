@@ -3,6 +3,8 @@ using UnityEngine.XR.ARFoundation;
 
 public class AddQrExample : MonoBehaviour
 {
+    // Acts as the Virtual Content -> could have multiple objects and scripts attached
+    public GameObject contentPrefab;
     private ImageTargetManager _imageTargetManager;
     private bool _isDone;
 
@@ -15,7 +17,6 @@ public class AddQrExample : MonoBehaviour
     {
         if (session.state == ARSessionState.SessionTracking && !_isDone)
         {
-            
             CreateImageTargetTest();
         }
     }
@@ -26,11 +27,12 @@ public class AddQrExample : MonoBehaviour
         if (texture)
         {
             _imageTargetManager = FindObjectOfType<ImageTargetManager>();
-            if (_imageTargetManager)
+            if (_imageTargetManager && contentPrefab)
             {
-                StartCoroutine(_imageTargetManager.AddImage(texture, 0.05f));
+                _imageTargetManager.AddVirtualContentToImage(texture, contentPrefab, 0.05f);
             }
         }
+
         _isDone = true;
     }
 }

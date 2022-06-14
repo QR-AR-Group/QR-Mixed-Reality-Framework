@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 94
+  controlID: 27
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 84
+  controlID: 17
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -249,7 +249,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 85
+  controlID: 18
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -366,7 +366,8 @@ MonoBehaviour:
     m_SaveData: []
   m_SearchFilter:
     m_NameFilter: 
-    m_ClassNames: []
+    m_ClassNames:
+    - Prefab
     m_AssetLabels: []
     m_AssetBundleNames: []
     m_VersionControlStates: []
@@ -375,24 +376,23 @@ MonoBehaviour:
     m_SceneHandles: 
     m_ShowAllHits: 0
     m_SkipHidden: 0
-    m_SearchArea: 1
-    m_Folders:
-    - Assets/Resources
+    m_SearchArea: 0
+    m_Folders: []
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Resources
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Adrian\UnityStuff\AR-Course\QR-Mixed-Reality-Framework
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 7e9d0000
-    m_LastClickedID: 40318
-    m_ExpandedIDs: 00000000fa94000000ca9a3b
+    m_SelectedIDs: 04ca9a3b
+    m_LastClickedID: 1000000004
+    m_ExpandedIDs: 00000000d862000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -420,7 +420,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 
+    m_ExpandedIDs: 00000000d8620000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -550,23 +550,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 56ae0000
-      m_LastClickedID: 0
-      m_ExpandedIDs: e06fffff2c70ffff2e70ffff6a72ffffb672ffff8874ffffbe76ffff0a77ffffdc78ffffd87bffff247cffff187effff5c80ffffa880ffff7a82ffff7a84ffffc684ffff9886ffffc888ffff1489ffffe68affff608cffffac8cffffae8cffffd48dffff208efffff88fffffd493ffff2094fffff295ffff1a98ffff6698ffff389afffff09bffff3c9cffff0e9effff20a1ffff6ca1ffff60a3ffffa0a4ffff48b4ffff96b4ffff6ab6fffffec3ffff42c4ffff86c4ffffcac4ffff22c5ffffc6c6ffff269600003e960000429600005c960000269d00002a9d0000449d000080a00000
+      m_SelectedIDs: f06b0000
+      m_LastClickedID: 27632
+      m_ExpandedIDs: 06d1ffff52d1ffff26d3ffff28d5ffff74d5ffff48d7ffff26daffff72daffff46dcffffeedeffff3adfffff0ee1ffffd0e2ffff1ce3fffff0e4ffff2efbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Primary Placement Indicator
-        m_OriginalName: Primary Placement Indicator
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 38462
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 4}
       m_SearchString: 
@@ -917,7 +917,7 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 2560, y: 1440}
+  m_TargetSize: {x: 1107, y: 783}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -932,10 +932,10 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -1280
-    m_HBaseRangeMax: 1280
-    m_VBaseRangeMin: -720
-    m_VBaseRangeMax: 720
+    m_HBaseRangeMin: -553.5
+    m_HBaseRangeMax: 553.5
+    m_VBaseRangeMin: -391.5
+    m_VBaseRangeMax: 391.5
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -955,7 +955,7 @@ MonoBehaviour:
       y: 21
       width: 1107
       height: 783
-    m_Scale: {x: 0.43242186, y: 0.43242186}
+    m_Scale: {x: 1, y: 1}
     m_Translation: {x: 553.5, y: 391.5}
     m_MarginLeft: 0
     m_MarginRight: 0
@@ -963,12 +963,12 @@ MonoBehaviour:
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -1280
-      y: -905.3659
-      width: 2560
-      height: 1810.7318
+      x: -553.5
+      y: -391.5
+      width: 1107
+      height: 783
     m_MinimalGUI: 1
-  m_defaultScale: 0.43242186
+  m_defaultScale: 1
   m_LastWindowPixelSize: {x: 1107, y: 804}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
