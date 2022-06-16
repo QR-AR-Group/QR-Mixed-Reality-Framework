@@ -31,7 +31,7 @@ namespace ImageTracking
                 _planeContainer.transform.position = transform.position + Parameters.Offset;
                 /* As the object being scaled is a plane -> only x and z are important 
                  * For different containers/objects all 3 params are important to set
-                 * (in most of these cases z = 1f in these cases)
+                 * (in most of these cases z = 1f)
                  */
                 _planeContainer.transform.localScale = new Vector3(Parameters.Width, 1f, Parameters.Height);
             }

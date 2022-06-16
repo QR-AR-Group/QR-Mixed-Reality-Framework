@@ -814,7 +814,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SerializedLibrary: {fileID: 0}
-  m_MaxNumberOfMovingImages: 3
+  m_MaxNumberOfMovingImages: 20
   m_TrackedImagePrefab: {fileID: 0}
 --- !u!114 &1659859604
 MonoBehaviour:

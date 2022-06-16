@@ -42,6 +42,13 @@ namespace ImageTracking
                 AssignContent(trackedImage);
                 _statusLog = "Virtual Content instantiated\n" + _statusLog;
             }
+            
+            foreach (ARTrackedImage removedImage in eventArgs.removed)
+            {
+                string identifier = removedImage.referenceImage.name;
+                Destroy(_instantiatedContents[identifier].gameObject);
+                Destroy(removedImage);
+            }
         }
 
         private void AssignContent(ARTrackedImage trackedImage)
