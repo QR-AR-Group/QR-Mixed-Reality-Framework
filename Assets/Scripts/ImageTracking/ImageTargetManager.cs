@@ -17,6 +17,7 @@ namespace ImageTracking
 
         // for testing purposes
         private string _statusLog;
+
         private void Start()
         {
             trackedImageManager = GetComponent<ARTrackedImageManager>();
@@ -42,7 +43,13 @@ namespace ImageTracking
                 AssignContent(trackedImage);
                 _statusLog = "Virtual Content instantiated\n" + _statusLog;
             }
-            
+
+            foreach (ARTrackedImage updatedImage in eventArgs.updated)
+            {
+                string identifier = updatedImage.referenceImage.name;
+                UpdateContent(identifier, updatedImage.transform.position, updatedImage.transform.rotation);
+            }
+
             foreach (ARTrackedImage removedImage in eventArgs.removed)
             {
                 string identifier = removedImage.referenceImage.name;
@@ -51,13 +58,30 @@ namespace ImageTracking
             }
         }
 
+        public void UpdateContent(string identifier, Vector3 position, Quaternion rotation)
+        {
+            VirtualContent content = _instantiatedContents[identifier];
+            if (content)
+            {
+                content.transform.rotation = rotation;
+                // Workaround, otherwise "content.transform.position = position + content.ScaledOffset" would be possible
+                content.transform.position = position;
+                content.transform.position = content.transform.TransformPoint(content.ScaledOffset);
+                content.transform.localScale = content.Scale;
+            }
+        }
+
         private void AssignContent(ARTrackedImage trackedImage)
         {
-            if (_prefabDictionary.TryGetValue(trackedImage.referenceImage.name, out var content))
+            string identifier = trackedImage.referenceImage.name;
+            if (_prefabDictionary.TryGetValue(identifier, out var content))
             {
-                VirtualContent instantiatedContent = Instantiate(content.ContentPrefab, trackedImage.transform).GetComponent<VirtualContent>();
-                instantiatedContent.Initialize(content.Parameters, trackedImage);
-                _instantiatedContents[trackedImage.referenceImage.name] = instantiatedContent;
+                VirtualContent instantiatedContent =
+                    Instantiate(content.ContentPrefab, Vector3.zero, Quaternion.identity)
+                        .GetComponent<VirtualContent>();
+                instantiatedContent.Initialize(content.Parameters);
+                _instantiatedContents[identifier] = instantiatedContent;
+                UpdateContent(identifier, trackedImage.transform.position, trackedImage.transform.rotation);
             }
         }
 
@@ -104,10 +128,10 @@ namespace ImageTracking
         void OnGUI()
         {
             // for testing purposes, later on work with pop ups/dialogs
-            GUIStyle style = new GUIStyle(GUI.skin.label);
+            /*GUIStyle style = new GUIStyle(GUI.skin.label);
             style.fontSize = 30;
             style.normal.textColor = Color.magenta;
-            GUI.Label(new Rect(40, 40, Screen.width / 2f, Screen.height), _statusLog, style);
+            GUI.Label(new Rect(40, 40, Screen.width / 2f, Screen.height), _statusLog, style);*/
         }
     }
 }

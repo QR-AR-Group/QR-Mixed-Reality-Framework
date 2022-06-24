@@ -25,13 +25,13 @@ namespace ImageTracking
         private void CreateImageTargetTest()
         {
             // The content should spawn 25cm away from the image
-            Vector3 offset = new Vector3(-0.25f, 0f, 0f);
+            Vector3 offset = new Vector3(-0.2f, 0f, 0f);
             
             // The content should have these dimensions (in cm)
             float width = 0.2f;
             float height = 0.1f;
             
-            ContentParameters contentParameters = new ContentParameters("http://url.test", offset, width, height);
+            ContentParameters contentParameters = new ContentParameters("https://url.test", offset, width, height);
             
             // Later textures will be directly passed to the _imageTargetManager after their creation
             Texture2D texture = Resources.Load("QR-example") as Texture2D;

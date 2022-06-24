@@ -1,40 +1,33 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.XR.ARFoundation;
 
 namespace ImageTracking
 {
     // Can have multiple objects and scripts attached -> Web View for displaying a webpage etc.
     public class VirtualContent : MonoBehaviour
     {
+        // Later components of the Virtual Component can be tagged and searched (e.g. "FindGameObjectWithTag("WebView")
+        //public GameObject PrefabContainer { get; private set; }
         public ContentParameters Parameters { get; private set; }
-        private bool _initialized;
+        public Vector3 Scale { get; private set; }
+        public Vector3 ScaledOffset { get; private set; }
 
-        // Parent and assigned Image of Virtual Content
-        private ARTrackedImage _trackedImage;
-
-        // This could hold a Web View for example 
-        private GameObject _planeContainer;
-
-        public void Initialize(ContentParameters contentParameters, ARTrackedImage trackedImage)
+        public void Initialize(ContentParameters contentParameters)
         {
             Parameters = contentParameters ?? throw new ArgumentNullException(nameof(contentParameters));
-            _trackedImage = trackedImage;
 
-            // Later components of the Virtual Component can be tagged and searched (e.g. "FindGameObjectWithTag("WebView")
-            _planeContainer = transform.GetChild(0).gameObject;
-            if (_planeContainer)
-            {
-                _initialized = true;
-                _planeContainer.transform.position = transform.position + Parameters.Offset;
-                /* As the object being scaled is a plane -> only x and z are important 
-                 * For different containers/objects all 3 params are important to set
-                 * (in most of these cases z = 1f)
-                 */
-                _planeContainer.transform.localScale = new Vector3(Parameters.Width, 1f, Parameters.Height);
-            }
+            /* I guess as the object being scaled is a plane -> only x and z are important 
+             * For different containers/objects all 3 params are important to set (with z=1f)
+             */
+            Scale = new Vector3(Parameters.Width, 1f, Parameters.Height);
+            float scaledX = Parameters.Offset.x / Scale.x;
+            float scaledY = Parameters.Offset.y / Scale.y;
+            float scaledZ = Parameters.Offset.z / Scale.z;
+            Vector3 scaledOffset = new Vector3(scaledX, scaledY, scaledZ);
+            ScaledOffset = scaledOffset;
+            
+            // Do stuff
+            //PrefabContainer = transform.GetChild(0).gameObject;
         }
     }
 }
