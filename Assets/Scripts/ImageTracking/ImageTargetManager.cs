@@ -52,9 +52,8 @@ namespace ImageTracking
 
             foreach (ARTrackedImage removedImage in eventArgs.removed)
             {
-                string identifier = removedImage.referenceImage.name;
-                Destroy(_instantiatedContents[identifier].gameObject);
-                Destroy(removedImage);
+                //string identifier = removedImage.referenceImage.name;
+                //Destroy(_instantiatedContents[identifier].gameObject);
             }
         }
 
