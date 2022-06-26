@@ -10,6 +10,7 @@ public class Placement : MonoBehaviour
     public GameObject primaryIndicator;
     public GameObject secondaryIndicator;
     public GameObject placementPlane;
+    public GameObject placementQrCode;
 
     private ARRaycastManager arRaycastManager;
     private Pose placementPose;
@@ -17,19 +18,32 @@ public class Placement : MonoBehaviour
 
     private bool touching;
 
+    private bool planeIsFrozen = false;
+    private bool qrPlacementStarted = false;
+    private bool qrPlacementFinished = false;
+
+
     void Start()
     {
         arRaycastManager = FindObjectOfType<ARRaycastManager>();
         placementPlane.SetActive(false);
+        placementQrCode.SetActive(false);
     }
 
     void Update()
     {
-        UpdatePlacementPose();
-        UpdateprimaryIndicator();
-        ReactToTouch();
+        if (!planeIsFrozen)
+        {
+            UpdatePlacementPose();
+            UpdateprimaryIndicator();
+            ReactToTouch();
+        }
+        else
+        {
+            UpdateQrCodePlacement();
+        }
     }
-
+    
     private void ReactToTouch()
     {
         if (Input.touchCount > 0)
@@ -61,12 +75,27 @@ public class Placement : MonoBehaviour
 
             // Rotate primaryPlacementIndicator in same direction as the secondary
             primaryIndicator.transform.rotation = secondaryIndicator.transform.rotation;
+
+            if (Input.GetTouch(0).phase == TouchPhase.Ended)
+            {
+                FreezePlane();
+            }
         }
         else
         {
             secondaryIndicator.SetActive(false);
             touching = false;
         }
+    }
+
+    private void FreezePlane()
+    {
+        //TODO: properly display cancel / proceed buttons
+        // also check if size of plane is ok maybe (threshold)
+        // if not -> RedoPlanePlacement()
+        secondaryIndicator.SetActive(false);
+        primaryIndicator.SetActive(false);
+        planeIsFrozen = true;
     }
 
     private void setActiveAndRotateToPlacementPost(GameObject indicator)
@@ -95,7 +124,7 @@ public class Placement : MonoBehaviour
         arRaycastManager.Raycast(screenCenter, hits, TrackableType.Planes);
 
         placementPoseIsValid = hits.Count > 0;
-        Debug.Log(placementPoseIsValid);
+        //Debug.Log(placementPoseIsValid);
         if (placementPoseIsValid)
         {
             placementPose = hits[0].pose;
@@ -115,6 +144,59 @@ public class Placement : MonoBehaviour
                 placementPose.rotation = zUp;
             }
         }
+    }
+
+    private void UpdateQrCodePlacement()
+    {
+        if (Input.touchCount > 0 && qrPlacementStarted && !qrPlacementFinished)
+        {
+            List<ARRaycastHit> hits = new List<ARRaycastHit>();
+            var touch = Input.GetTouch(0);
+            if (arRaycastManager.Raycast(touch.position, hits, TrackableType.Planes))
+            {
+                //TODO: placementPose instead of placementPlane.transform.position
+                var hitPose = hits[0].pose;
+                placementQrCode.transform.position =
+                    new Vector3(hitPose.position.x, placementPlane.transform.position.y, hitPose.position.z);
+                placementQrCode.transform.rotation = placementPlane.transform.rotation;
+            }
+        }
+    }
+
+    //TODO: Add proper buttons & integrate them into the script
+
+    public void RedoPlanePlacement()
+    {
+        enabled = false;
+        planeIsFrozen = false;
+        qrPlacementStarted = false;
+        secondaryIndicator.SetActive(true);
+        primaryIndicator.SetActive(true);
+        placementQrCode.SetActive(false);
+        placementPlane.SetActive(false);
+        enabled = true;
+    }
+
+    public void StartQrCodePlacement()
+    {
+        enabled = false;
+        qrPlacementStarted = true;
+        placementQrCode.SetActive(true);
+        enabled = true;
+    }
+
+    public void AbortQrPlacement()
+    {
+        RedoPlanePlacement();
+    }
+
+    public void FinishQrCodePlacement()
+    {
+        enabled = false;
+        qrPlacementFinished = true;
+        //TODO: calculate QR Code & rectangle offset
+        //TODO: Change scenes
+        enabled = true;
     }
 
     private void GetWallPlacement(
