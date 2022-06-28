@@ -385,7 +385,7 @@ MonoBehaviour:
     x: 1721
     y: 906
     width: 1326
-    height: 444
+    height: 423
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default

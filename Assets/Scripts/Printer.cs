@@ -4,25 +4,31 @@ using UnityEngine;
 
 public class Printer : MonoBehaviour
 {
+    private QREncoder qrEncoder;
+
     private bool isClicked = false;
+    private string testText = "This is a Text";
+    private Texture2D qrCode;
+    private string qrFileName = "qrcode.png";
+    private string log;
 
-    private bool isFocus = false;
-
-    private string screenShotName;
-    private bool isProcessing = false;
-    private string shareSubject, shareMessage;
-
-    public string toastText = "This is a Toast";
+    private void Start(){
+        qrEncoder = new QREncoder();
+    }
 
     public void Print(){
         isClicked = true;
 
-        screenShotName =  "qr-code.png";
-
-        shareSubject = "Print QR-Code";
-        shareMessage = "Print QR-Code";
-
+        CreateQRCode();
         ShareQRCode();
+    }
+
+    private void CreateQRCode(){
+        qrCode = qrEncoder.Encode(testText);
+        string screenShotPath = Application.persistentDataPath + "/" + qrFileName;
+        byte[] bytes = qrCode.EncodeToPNG();
+        System.IO.File.WriteAllBytes(screenShotPath, bytes);
+        log = bytes.Length/1024 + " saved to " + screenShotPath;
     }
 
     private void ShareQRCode(){
@@ -33,7 +39,7 @@ public class Printer : MonoBehaviour
         object[] toastParams = new object[3];
         AndroidJavaClass unityActivity = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
         toastParams[0] = unityActivity.GetStatic<AndroidJavaObject>("currentActivity");
-        toastParams[1] = toastText;
+        toastParams[1] = testText;
         toastParams[2] = toastClass.GetStatic<int>("LENGTH_LONG");
 
         //call static function of Toast class, makeText
@@ -43,14 +49,11 @@ public class Printer : MonoBehaviour
         toastObject.Call("show");
     }
 
-    void OnApplicationFocus(bool focus){
-        isFocus = focus;
-    }
-
     void OnGUI()
     {
         GUIStyle guiStyle = new GUIStyle();
         guiStyle.fontSize = 50;
-        GUILayout.Label(" Clicked: " + isClicked, guiStyle);
+        GUILayout.Label(" Clicked: " + isClicked + " - " + log , guiStyle);
+        GUI.Button(new Rect(400, 400, 256, 256), qrCode, GUIStyle.none);
     }
 }
