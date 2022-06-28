@@ -211,13 +211,13 @@ MonoBehaviour:
       - m_Target: {fileID: 150346897}
         m_TargetAssemblyTypeName: Printer, Assembly-CSharp
         m_MethodName: Print
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: You Scanned a printed TestCode!
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &150346895
