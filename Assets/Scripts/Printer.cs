@@ -11,6 +11,7 @@ public class Printer : MonoBehaviour
     private Texture2D qrCode;
     private string qrFileName = "qrcode.png";
     private string log;
+    private string qrFilePath;
 
     private void Start(){
         qrEncoder = new QREncoder();
@@ -25,29 +26,28 @@ public class Printer : MonoBehaviour
 
     private void CreateQRCode(){
         qrCode = qrEncoder.Encode(testText);
-        string screenShotPath = Application.persistentDataPath + "/" + qrFileName;
+        qrFilePath = Application.persistentDataPath + "/" + qrFileName;
         byte[] bytes = qrCode.EncodeToPNG();
-        System.IO.File.WriteAllBytes(screenShotPath, bytes);
-        log = bytes.Length/1024 + " saved to " + screenShotPath;
+        System.IO.File.WriteAllBytes(qrFilePath, bytes);
+        log = bytes.Length/1024 + " saved to " + qrFilePath;
     }
 
     private void ShareQRCode(){
-         //create a Toast class object
-        AndroidJavaClass toastClass = new AndroidJavaClass("android.widget.Toast");
+        AndroidJavaClass unity = new AndroidJavaClass ("com.unity3d.player.UnityPlayer");
+		AndroidJavaObject currentActivity = unity.GetStatic<AndroidJavaObject> ("currentActivity");
 
-        //create an array and add params to be passed
-        object[] toastParams = new object[3];
-        AndroidJavaClass unityActivity = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
-        toastParams[0] = unityActivity.GetStatic<AndroidJavaObject>("currentActivity");
-        toastParams[1] = testText;
-        toastParams[2] = toastClass.GetStatic<int>("LENGTH_LONG");
+        AndroidJavaClass photoPrinterClass = new AndroidJavaClass("androidx.print.PrintHelper");
+        AndroidJavaObject photoPrinter = new AndroidJavaObject("androidx.print.PrintHelper", currentActivity);
 
-        //call static function of Toast class, makeText
-        AndroidJavaObject toastObject = toastClass.CallStatic<AndroidJavaObject>("makeText", toastParams);
+        photoPrinter.Call("setScaleMode", photoPrinterClass.GetStatic<int>("SCALE_MODE_FIT"));
 
-        //show toast
-        toastObject.Call("show");
+        AndroidJavaClass bitmapFactory = new AndroidJavaClass("android.graphics.BitmapFactory");
+        AndroidJavaObject bitmap = bitmapFactory.CallStatic<AndroidJavaObject>("decodeFile", qrFilePath);
+
+        photoPrinter.Call("printBitmap", "Print QR Code", bitmap);
+        log = "should have been printed";
     }
+    
 
     void OnGUI()
     {
