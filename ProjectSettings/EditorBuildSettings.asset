@@ -5,12 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/QRScanner.unity
     guid: 44e59c229935ac646a76cae2c43f3f07
   - enabled: 0
     path: Assets/Scenes/Rect-Placement.unity
     guid: c4e005b72b5d728478c9004467b37b0a
+  - enabled: 1
+    path: Assets/Scenes/QRPrinter.unity
+    guid: 636228737dc927e4cbe2f031e24c3806
   m_configObjects:
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: 744b813df90924c169af73489b8325de,
       type: 2}
