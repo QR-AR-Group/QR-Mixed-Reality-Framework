@@ -11,23 +11,23 @@ public class QRScanner : MonoBehaviour
     public QRDemonstrator demonstrator;
 
     private IBarcodeReader reader;
-    private ARCameraManager aRCamera;
+    private ARCameraManager arCamera;
     private Texture2D arCameraTexture;
     private bool doOnce;
     private string result;
 
     void Start()
     {
-        aRCamera = FindObjectOfType<ARCameraManager>();
+        arCamera = FindObjectOfType<ARCameraManager>();
         reader = new BarcodeReader();
-        aRCamera.frameReceived += OnCameraFrameReceived;
+        arCamera.frameReceived += OnCameraFrameReceived;
     }
 
     void OnCameraFrameReceived(ARCameraFrameEventArgs eventArgs)
     {
         if ((Time.frameCount % 15) == 0)
         {
-            if (aRCamera.TryAcquireLatestCpuImage(out XRCpuImage image))
+            if (arCamera.TryAcquireLatestCpuImage(out XRCpuImage image))
             {
                 StartCoroutine(ProcessQRCode(image));
                 image.Dispose();
