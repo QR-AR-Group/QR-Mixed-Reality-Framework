@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - feature/14-design-ui
+      - feature/4-setup-documentation-pipeline
 
 jobs:
   # Build the documentation
