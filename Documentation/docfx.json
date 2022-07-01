@@ -62,7 +62,7 @@
             }
         ],
         "sitemap": {
-            "baseUrl": "https://QR-AR-Group.github.io/QR-Mixed-Reality-Frameework",
+            "baseUrl": "https://QR-AR-Group.github.io/QR-Mixed-Reality-Framework",
             "changefreq": "weekly",
             "fileOptions": {
                 "api/*": {
