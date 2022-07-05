@@ -23,6 +23,7 @@ public class Placement : MonoBehaviour
 
     private BoxCollider planeCollider;
     private BoxCollider qrCollider;
+    private Plane planeStruct;
 
     private bool planeIsFrozen;
     private bool qrPlacementStarted;
@@ -35,7 +36,6 @@ public class Placement : MonoBehaviour
         qrMock.SetActive(false);
         rectPlacementOptions.SetActive(false);
         qrPlacementOptions.SetActive(false);
-        planeCollider = placementPlane.GetComponentInChildren<BoxCollider>();
         qrCollider = qrMock.GetComponentInChildren<BoxCollider>();
     }
 
@@ -164,40 +164,22 @@ public class Placement : MonoBehaviour
     {
         if (Input.touchCount > 0 && qrPlacementStarted && !qrPlacementFinished)
         {
-            List<ARRaycastHit> hits = new List<ARRaycastHit>();
             var touch = Input.GetTouch(0);
-            if (arRaycastManager.Raycast(touch.position, hits, TrackableType.Planes))
+            List<ARRaycastHit> hits = new List<ARRaycastHit>();
+            arRaycastManager.Raycast(touch.position, hits, TrackableType.Planes);
+
+            if (hits.Count > 0)
             {
-                Pose hitPose = hits[0].pose;
-                Vector3 planePosition = placementPlane.transform.position;
-                Quaternion planeRotation = placementPlane.transform.rotation;
+                var ray = Camera.main.ScreenPointToRay(touch.position);
+                if (!planeStruct.Raycast(ray, out float planeEntry)) return;
 
-                // Adjust target position to be on level with plane, first check if its on a wall, then ground and else -> must be at the ceiling
-                Vector3 targetedPosition;
-                if (planeRotation.y == planeRotation.z)
-                {
-                    targetedPosition = new Vector3(hitPose.position.x,
-                        hitPose.position.y, planePosition.z);
-                }
-                else if (planeRotation.x == planeRotation.z)
-                {
-                    Debug.Log("on ground");
-                    targetedPosition = new Vector3(hitPose.position.x, planePosition.y,
-                        hitPose.position.z);
-                }
-                else
-                {
-                    targetedPosition = new Vector3(planePosition.x,
-                        hitPose.position.y, hitPose.position.z);
-                }
+                Vector3 targetedPosition = ray.GetPoint(planeEntry);
+                Vector3 nearestPlanePoint = planeCollider.ClosestPoint(targetedPosition);
 
-                Vector3 planeSurfacePoint = planeCollider.ClosestPoint(targetedPosition);
-
+                // Skip moving to position if the QR Mock would touch the nearest plane surface point
                 var tempCenter = qrCollider.center;
                 qrCollider.center = qrCollider.transform.InverseTransformPoint(targetedPosition);
-
-                // Skip moving to position if targeted pos is inside plane or the QR Mock would touch the plane surface point
-                if (planeCollider.bounds.Contains(targetedPosition) || qrCollider.bounds.Contains(planeSurfacePoint))
+                if (qrCollider.bounds.Contains(nearestPlanePoint))
                 {
                     qrCollider.center = tempCenter;
                     return;
@@ -205,12 +187,11 @@ public class Placement : MonoBehaviour
 
                 qrCollider.center = tempCenter;
 
-                float planeToSurfacePointDistance =
-                    Vector3.Distance(planePosition, planeSurfacePoint);
-                float maxRadius = planeToSurfacePointDistance + 0.1f; // 10cm
-                Vector3 fromPlaneToQr = targetedPosition - planePosition;
-                fromPlaneToQr = Vector3.ClampMagnitude(fromPlaneToQr, maxRadius);
-                targetedPosition = planePosition + fromPlaneToQr;
+                // Make it so the QR Mock will never be more than maxRadius away from the plane
+                Vector3 fromSurfaceToQr = targetedPosition - nearestPlanePoint;
+                fromSurfaceToQr = Vector3.ClampMagnitude(fromSurfaceToQr, 0.1f); // 10cm
+                targetedPosition = nearestPlanePoint + fromSurfaceToQr;
+
                 qrMock.transform.SetPositionAndRotation(
                     targetedPosition,
                     placementPlane.transform.rotation
@@ -222,12 +203,18 @@ public class Placement : MonoBehaviour
     private void FreezePlane()
     {
         const float minPlaneSize = 0.05f; // 5cm
-        if (planeCollider.bounds.size.x < minPlaneSize || planeCollider.bounds.size.y < minPlaneSize)
+        planeCollider = placementPlane.GetComponentInChildren<BoxCollider>();
+        if (planeCollider.bounds.size.magnitude < minPlaneSize)
         {
             RedoPlanePlacement();
         }
         else
         {
+            // Construct plane struct from plane object
+            MeshFilter filter = placementPlane.GetComponentInChildren<MeshFilter>();
+            Vector3 planeNormal = filter.transform.TransformDirection(filter.mesh.normals[0]);
+            planeStruct = new Plane(planeNormal, placementPlane.transform.position);
+
             secondaryIndicator.SetActive(false);
             primaryIndicator.SetActive(false);
             rectPlacementOptions.SetActive(true);
@@ -251,14 +238,18 @@ public class Placement : MonoBehaviour
     {
         enabled = false;
         qrPlacementStarted = true;
-        qrMock.SetActive(true);
-        qrMock.transform.position = placementPlane.transform.position +
-                                    Vector3.right * (planeCollider.bounds.size.x / 2f + 0.05f);
-        qrMock.transform.rotation = placementPlane.transform.rotation;
 
-        qrMock.transform.parent = placementPlane.transform;
+        // Place QR Mock next to the plane
+        // Maybe adjust/make simpler in the future
+        Vector3 spawnPoint = Vector3.Cross(Vector3.right, planeStruct.normal);
+        float maxRadius = 0.05f; // 5cm
+        spawnPoint = Vector3.ClampMagnitude(spawnPoint, maxRadius);
+        qrMock.transform.position = planeCollider.bounds.max + spawnPoint;
+        qrMock.transform.rotation = placementPlane.transform.rotation;
+        
         rectPlacementOptions.SetActive(false);
         qrPlacementOptions.SetActive(true);
+        qrMock.SetActive(true);
         enabled = true;
     }
 
