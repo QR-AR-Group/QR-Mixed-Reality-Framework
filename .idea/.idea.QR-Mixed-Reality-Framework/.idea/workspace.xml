@@ -3,7 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="38ed2498-d33c-4158-adac-d6a755db4766" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.QR-Mixed-Reality-Framework/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.QR-Mixed-Reality-Framework/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Square-Span.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Square-Span.unity.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
@@ -14,6 +18,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -34,6 +46,8 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/ImageTracking/AddQrExample.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/ImageTracking/ImageTargetManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/ScreenLogger.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/ContentParameters.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/CreationManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Placement.cs" />
     </changedPaths>
   </component>
@@ -105,7 +119,9 @@
       <workItem from="1656955729303" duration="3005000" />
       <workItem from="1656971165275" duration="4132000" />
       <workItem from="1657026045838" duration="1497000" />
-      <workItem from="1657038156048" duration="12702000" />
+      <workItem from="1657038156048" duration="12776000" />
+      <workItem from="1657099414969" duration="9948000" />
+      <workItem from="1657138925689" duration="1180000" />
     </task>
     <servers />
   </component>

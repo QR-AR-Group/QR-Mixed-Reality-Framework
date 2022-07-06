@@ -11,10 +11,7 @@ public class Placement : MonoBehaviour
     public GameObject placementPlane;
     public GameObject qrMock;
 
-    // Holding buttons to begin next placement phase or cancel
-    public GameObject rectPlacementOptions;
-    public GameObject qrPlacementOptions;
-
+    private CreationManager creationManager;
     private ARRaycastManager arRaycastManager;
     private Pose placementPose;
     private bool placementPoseIsValid = false;
@@ -29,13 +26,15 @@ public class Placement : MonoBehaviour
     private bool qrPlacementStarted;
     private bool qrPlacementFinished;
 
+    public bool finished;
+    public ContentParameters contentParameters = new ContentParameters();
+
     void Start()
     {
+        creationManager = FindObjectOfType<CreationManager>();
         arRaycastManager = FindObjectOfType<ARRaycastManager>();
         placementPlane.SetActive(false);
         qrMock.SetActive(false);
-        rectPlacementOptions.SetActive(false);
-        qrPlacementOptions.SetActive(false);
         qrCollider = qrMock.GetComponentInChildren<BoxCollider>();
     }
 
@@ -164,49 +163,42 @@ public class Placement : MonoBehaviour
     {
         if (Input.touchCount > 0 && qrPlacementStarted && !qrPlacementFinished)
         {
-            var touch = Input.GetTouch(0);
-            List<ARRaycastHit> hits = new List<ARRaycastHit>();
-            arRaycastManager.Raycast(touch.position, hits, TrackableType.Planes);
+            var ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+            if (!planeStruct.Raycast(ray, out float planeEntry)) return;
 
-            if (hits.Count > 0)
+            Vector3 targetedPosition = ray.GetPoint(planeEntry);
+            Vector3 nearestPlanePoint = planeCollider.ClosestPoint(targetedPosition);
+
+            // Skip moving to position if the QR Mock would touch the nearest plane surface point
+            var tempCenter = qrCollider.center;
+            qrCollider.center = qrCollider.transform.InverseTransformPoint(targetedPosition);
+            if (qrCollider.bounds.Contains(nearestPlanePoint))
             {
-                var ray = Camera.main.ScreenPointToRay(touch.position);
-                if (!planeStruct.Raycast(ray, out float planeEntry)) return;
-
-                Vector3 targetedPosition = ray.GetPoint(planeEntry);
-                Vector3 nearestPlanePoint = planeCollider.ClosestPoint(targetedPosition);
-
-                // Skip moving to position if the QR Mock would touch the nearest plane surface point
-                var tempCenter = qrCollider.center;
-                qrCollider.center = qrCollider.transform.InverseTransformPoint(targetedPosition);
-                if (qrCollider.bounds.Contains(nearestPlanePoint))
-                {
-                    qrCollider.center = tempCenter;
-                    return;
-                }
-
                 qrCollider.center = tempCenter;
-
-                // Make it so the QR Mock will never be more than maxRadius away from the plane
-                Vector3 fromSurfaceToQr = targetedPosition - nearestPlanePoint;
-                fromSurfaceToQr = Vector3.ClampMagnitude(fromSurfaceToQr, 0.1f); // 10cm
-                targetedPosition = nearestPlanePoint + fromSurfaceToQr;
-
-                qrMock.transform.SetPositionAndRotation(
-                    targetedPosition,
-                    placementPlane.transform.rotation
-                );
+                return;
             }
+
+            qrCollider.center = tempCenter;
+
+            // Make it so the QR Mock will never be more than maxRadius away from the plane
+            Vector3 fromSurfaceToQr = targetedPosition - nearestPlanePoint;
+            fromSurfaceToQr = Vector3.ClampMagnitude(fromSurfaceToQr, 0.1f); // 10cm
+            targetedPosition = nearestPlanePoint + fromSurfaceToQr;
+
+            qrMock.transform.SetPositionAndRotation(
+                targetedPosition,
+                placementPlane.transform.rotation
+            );
         }
     }
 
-    private void FreezePlane()
+    public void FreezePlane()
     {
         const float minPlaneSize = 0.05f; // 5cm
         planeCollider = placementPlane.GetComponentInChildren<BoxCollider>();
         if (planeCollider.bounds.size.magnitude < minPlaneSize)
         {
-            RedoPlanePlacement();
+            RestartPlanePlacement();
         }
         else
         {
@@ -217,45 +209,40 @@ public class Placement : MonoBehaviour
 
             secondaryIndicator.SetActive(false);
             primaryIndicator.SetActive(false);
-            rectPlacementOptions.SetActive(true);
             planeIsFrozen = true;
+            creationManager.EndRectPlacement();
         }
     }
 
-    public void RedoPlanePlacement()
+    public void RestartPlanePlacement()
     {
         enabled = false;
         planeIsFrozen = false;
         qrPlacementStarted = false;
         qrMock.SetActive(false);
         placementPlane.SetActive(false);
-        rectPlacementOptions.SetActive(false);
-        qrPlacementOptions.SetActive(false);
         enabled = true;
     }
 
     public void StartQrMockPlacement()
     {
         enabled = false;
+        qrPlacementFinished = false;
         qrPlacementStarted = true;
 
-        // Place QR Mock next to the plane
-        // Maybe adjust/make simpler in the future
-        Vector3 spawnPoint = Vector3.Cross(Vector3.right, planeStruct.normal);
-        float maxRadius = 0.05f; // 5cm
-        spawnPoint = Vector3.ClampMagnitude(spawnPoint, maxRadius);
-        qrMock.transform.position = planeCollider.bounds.max + spawnPoint;
-        qrMock.transform.rotation = placementPlane.transform.rotation;
-        
-        rectPlacementOptions.SetActive(false);
-        qrPlacementOptions.SetActive(true);
-        qrMock.SetActive(true);
-        enabled = true;
-    }
+        if (!qrMock.activeSelf)
+        {
+            // Place QR Mock next to the plane
+            // Maybe adjust/make simpler in the future
+            Vector3 spawnPoint = Vector3.Cross(Vector3.right, planeStruct.normal);
+            float maxRadius = 0.05f; // 5cm
+            spawnPoint = Vector3.ClampMagnitude(spawnPoint, maxRadius);
+            qrMock.transform.position = planeCollider.bounds.max + spawnPoint;
+            qrMock.transform.rotation = placementPlane.transform.rotation;
+            qrMock.SetActive(true);
+        }
 
-    public void CancelQrMockPlacement()
-    {
-        RedoPlanePlacement();
+        enabled = true;
     }
 
     public void FinishPlacement()
@@ -263,19 +250,19 @@ public class Placement : MonoBehaviour
         enabled = false;
         qrPlacementFinished = true;
 
-        Vector3 qrSurfacePoint = qrCollider.ClosestPointOnBounds(placementPlane.transform.position);
-        Vector3 planeSurfacePoint = planeCollider.ClosestPointOnBounds(qrMock.transform.position);
+        //Vector3 qrSurfacePoint = qrCollider.ClosestPointOnBounds(placementPlane.transform.position);
+        //Vector3 planeSurfacePoint = planeCollider.ClosestPointOnBounds(qrMock.transform.position);
+        //float distanceBetweenQrAndPlane = Vector3.Distance(qrSurfacePoint, planeSurfacePoint);
+        contentParameters.Offset = qrMock.transform.position - placementPlane.transform.position;
+        contentParameters.Height = planeCollider.bounds.size.y; // Plane height
+        contentParameters.Width = planeCollider.bounds.size.x; // Plane width
 
-        // Future ContentParameters
-        float distanceBetweenQrAndPlane = Vector3.Distance(qrSurfacePoint, planeSurfacePoint);
-        Vector3 offsetBetweenQrAndPlane = qrMock.transform.position - placementPlane.transform.position;
-        float planeWidth = planeCollider.bounds.size.x;
-        float planeHeight = planeCollider.bounds.size.y;
-
-        //TODO Write Manager class that accepts this information...
-
-        qrPlacementOptions.SetActive(false);
         enabled = true;
+    }
+
+    public ContentParameters GetContentParameters()
+    {
+        return contentParameters;
     }
 
     void OnGUI()
