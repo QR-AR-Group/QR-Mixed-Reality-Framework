@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
@@ -12,6 +14,7 @@ public class Placement : MonoBehaviour
     public GameObject qrMock;
 
     private CreationManager creationManager;
+    private Camera mainCamera;
     private ARRaycastManager arRaycastManager;
     private Pose placementPose;
     private bool placementPoseIsValid = false;
@@ -25,11 +28,12 @@ public class Placement : MonoBehaviour
     private bool planeIsFrozen;
     private bool qrPlacementStarted;
     private bool qrPlacementFinished;
-    
+
     public ContentParameters contentParameters = new ContentParameters();
 
     void Start()
     {
+        mainCamera = Camera.main;
         creationManager = FindObjectOfType<CreationManager>();
         arRaycastManager = FindObjectOfType<ARRaycastManager>();
         qrCollider = qrMock.GetComponentInChildren<BoxCollider>();
@@ -122,7 +126,7 @@ public class Placement : MonoBehaviour
 
     private void UpdatePlacementPose()
     {
-        var screenCenter = Camera.main.ViewportToScreenPoint(new Vector3(0.5f, 0.5f));
+        var screenCenter = mainCamera.ViewportToScreenPoint(new Vector3(0.5f, 0.5f));
         List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
         arRaycastManager.Raycast(screenCenter, hits, TrackableType.Planes);
@@ -136,7 +140,7 @@ public class Placement : MonoBehaviour
 
             if (Math.Abs(upVector.x) + Math.Abs(upVector.z) < Math.Abs(upVector.y))
             {
-                var cameraForward = Camera.main.transform.forward;
+                var cameraForward = mainCamera.transform.forward;
                 var cameraBearing = new Vector3(cameraForward.x, 0, cameraForward.z).normalized;
                 placementPose.rotation = Quaternion.LookRotation(cameraBearing);
             }
@@ -169,7 +173,12 @@ public class Placement : MonoBehaviour
     {
         if (Input.touchCount > 0 && qrPlacementStarted && !qrPlacementFinished)
         {
-            var ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+            foreach (var touch in Input.touches)
+            {
+                if (EventSystem.current.IsPointerOverGameObject(touch.fingerId)) return;
+            }
+
+            var ray = mainCamera.ScreenPointToRay(Input.GetTouch(0).position);
             if (!planeStruct.Raycast(ray, out float planeEntry)) return;
 
             Vector3 targetedPosition = ray.GetPoint(planeEntry);
@@ -208,14 +217,15 @@ public class Placement : MonoBehaviour
         }
         else
         {
-            // Construct plane struct from plane object
+            planeIsFrozen = true;
+
+            // Construct plane struct from rect object
             MeshFilter filter = placementPlane.GetComponentInChildren<MeshFilter>();
             Vector3 planeNormal = filter.transform.TransformDirection(filter.mesh.normals[0]);
             planeStruct = new Plane(planeNormal, placementPlane.transform.position);
 
             secondaryIndicator.SetActive(false);
             primaryIndicator.SetActive(false);
-            planeIsFrozen = true;
             creationManager.EndRectPlacement();
         }
     }
@@ -224,6 +234,7 @@ public class Placement : MonoBehaviour
     {
         planeIsFrozen = false;
         qrPlacementStarted = false;
+        qrPlacementFinished = false;
         qrMock.SetActive(false);
         placementPlane.SetActive(false);
     }
@@ -236,11 +247,12 @@ public class Placement : MonoBehaviour
         if (!qrMock.activeSelf)
         {
             // Place QR Mock next to the plane
-            // Maybe adjust/make simpler in the future
-            Vector3 spawnPoint = Vector3.Cross(Vector3.right, planeStruct.normal);
-            float maxRadius = 0.05f; // 5cm
-            spawnPoint = Vector3.ClampMagnitude(spawnPoint, maxRadius);
-            qrMock.transform.position = planeCollider.bounds.max + spawnPoint;
+            MeshFilter filter = placementPlane.GetComponentInChildren<MeshFilter>();
+            Vector3 planeTangent = filter.transform.TransformDirection(filter.mesh.tangents[0]).normalized; // x axis of plane
+            float planeWidth = filter.sharedMesh.bounds.size.x;
+            float maxRadius = planeWidth/2 + 0.05f; // 5cm
+            Vector3 spawnOffset = Vector3.ClampMagnitude(planeTangent, maxRadius);
+            qrMock.transform.position = placementPlane.transform.position + spawnOffset;
             qrMock.transform.rotation = placementPlane.transform.rotation;
             qrMock.SetActive(true);
         }
@@ -249,13 +261,15 @@ public class Placement : MonoBehaviour
     public void FinishPlacement()
     {
         qrPlacementFinished = true;
-
+        MeshFilter filter = placementPlane.GetComponentInChildren<MeshFilter>();
         //Vector3 qrSurfacePoint = qrCollider.ClosestPointOnBounds(placementPlane.transform.position);
         //Vector3 planeSurfacePoint = planeCollider.ClosestPointOnBounds(qrMock.transform.position);
         //float distanceBetweenQrAndPlane = Vector3.Distance(qrSurfacePoint, planeSurfacePoint);
-        contentParameters.Offset = qrMock.transform.position - placementPlane.transform.position;
-        contentParameters.Height = planeCollider.bounds.size.y; // Plane height
-        contentParameters.Width = planeCollider.bounds.size.x; // Plane width
+        Vector3 offset = qrMock.transform.position - placementPlane.transform.position;
+        offset = placementPlane.transform.InverseTransformVector(offset);
+        contentParameters.Offset = offset;
+        contentParameters.Width = filter.sharedMesh.bounds.size.x; 
+        contentParameters.Height = filter.sharedMesh.bounds.size.y; 
     }
 
     void OnGUI()

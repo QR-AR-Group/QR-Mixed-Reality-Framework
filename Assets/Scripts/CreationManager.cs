@@ -8,8 +8,8 @@ public class CreationManager : MonoBehaviour
 {
     public GameObject backButton;
     public GameObject continueButton;
-    public GameObject startPlacementButton;
     public GameObject cancelButton;
+    public GameObject startPlacementButton;
 
     public GameObject urlScreen;
     public GameObject rectPlacementNotice;
@@ -64,15 +64,14 @@ public class CreationManager : MonoBehaviour
         }
         else
         {
-            urlInput.text = userInput + "<- FAIL because of: " +
-                            Uri.IsWellFormedUriString(userInput, UriKind.RelativeOrAbsolute);
+            // TODO show invalid URL pop up
         }
     }
 
     public void StartRectPlacement()
     {
-        placementScript.enabled = false;
         currentPhase = 1;
+        placementScript.enabled = false;
         cancelButton.SetActive(false);
         continueButton.SetActive(false);
         rectPlacementNotice.SetActive(true);
@@ -89,12 +88,10 @@ public class CreationManager : MonoBehaviour
         rectPlacementNotice.SetActive(false);
         cancelButton.SetActive(true);
         backButton.SetActive(false);
-        placementScript.enabled = true;
     }
 
     public void StartQrPlacement()
     {
-        placementScript.enabled = false;
         currentPhase = 2;
         cancelButton.SetActive(false);
         backButton.SetActive(true);
@@ -107,14 +104,11 @@ public class CreationManager : MonoBehaviour
 
     public void AskForPrint()
     {
-        placementScript.enabled = false;
         currentPhase = 3;
         placementScript.FinishPlacement();
         continueButton.SetActive(false);
         printingButton.SetActive(true);
-        placementScript.enabled = true;
     }
-
 
     public void ReceiveFinalParameters()
     {
@@ -122,10 +116,8 @@ public class CreationManager : MonoBehaviour
         contentParameters.Offset = finalParams.Offset;
         contentParameters.Width = finalParams.Width;
         contentParameters.Height = finalParams.Height;
-        placementScript.enabled = false;
-        printingButton.SetActive(false);
 
-        // TODO show success pop up and move on to other scene
+        // TODO show success pop up maybe move on to scene where the QR is finally displayed and will be printed
     }
 
     public void GoBack()
@@ -137,7 +129,7 @@ public class CreationManager : MonoBehaviour
         }
         else
         {
-            // Go to previous Scene
+            // TODO Go to previous Scene
             // SceneManager.LoadScene(previousScene); 
         }
     }
@@ -145,9 +137,6 @@ public class CreationManager : MonoBehaviour
     public void Continue()
     {
         int goToAction = currentPhase + 1;
-        if (goToAction < actions.Count)
-        {
-            actions[goToAction].Invoke();
-        }
+        actions[goToAction]?.Invoke();
     }
 }
