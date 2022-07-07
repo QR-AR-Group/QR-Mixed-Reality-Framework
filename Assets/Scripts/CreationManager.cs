@@ -1,29 +1,33 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CreationManager : MonoBehaviour
 {
     public GameObject backButton;
     public GameObject continueButton;
+    public GameObject startPlacementButton;
+    public GameObject cancelButton;
 
     public GameObject urlScreen;
     public GameObject rectPlacementNotice;
     public GameObject qrPlacementNotice;
-    public GameObject printingScreen;
+    public GameObject printingButton;
 
-    //private InputField urlInput;
+    public TMP_InputField urlInput;
+    private Toggle transparencyToggle;
 
     private ContentParameters contentParameters = new ContentParameters();
     private Placement placementScript;
 
     private List<Action> actions;
-    private int currentAction;
-    
+    private int currentPhase;
+
     void Start()
     {
         placementScript = GetComponent<Placement>();
-        //urlInput = urlScreen.GetComponent<InputField>();
         actions = new List<Action>();
         actions.Add(StartUrlInput);
         actions.Add(StartRectPlacement);
@@ -37,60 +41,80 @@ public class CreationManager : MonoBehaviour
 
     public void StartUrlInput()
     {
-        currentAction = 0;
+        currentPhase = 0;
         placementScript.enabled = false;
+        placementScript.DeactivateUI();
         rectPlacementNotice.SetActive(false);
         qrPlacementNotice.SetActive(false);
+        startPlacementButton.SetActive(true);
         urlScreen.SetActive(true);
     }
 
-    public void EndUrlInput(string url)
+    public void EndUrlInput()
     {
-        if (Uri.IsWellFormedUriString(url, UriKind.RelativeOrAbsolute))
+        string userInput = urlInput.text;
+        if (!string.IsNullOrEmpty(userInput) && Uri.IsWellFormedUriString(userInput, UriKind.RelativeOrAbsolute))
         {
-            contentParameters.URL = url;
+            contentParameters.URL = userInput;
+            contentParameters.Transparency = transparencyToggle;
             urlScreen.SetActive(false);
+            startPlacementButton.SetActive(false);
             // TODO show success pop up
             StartRectPlacement();
         }
         else
         {
-            // TODO show error pop up
+            urlInput.text = userInput + "<- FAIL because of: " +
+                            Uri.IsWellFormedUriString(userInput, UriKind.RelativeOrAbsolute);
         }
     }
 
     public void StartRectPlacement()
     {
-        currentAction = 1;
+        placementScript.enabled = false;
+        currentPhase = 1;
+        cancelButton.SetActive(false);
         continueButton.SetActive(false);
         rectPlacementNotice.SetActive(true);
         qrPlacementNotice.SetActive(false);
+        backButton.SetActive(true);
         placementScript.RestartPlanePlacement();
+        placementScript.enabled = true;
     }
-    
+
     public void EndRectPlacement()
     {
+        placementScript.enabled = false;
         continueButton.SetActive(true);
         rectPlacementNotice.SetActive(false);
+        cancelButton.SetActive(true);
+        backButton.SetActive(false);
+        placementScript.enabled = true;
     }
 
     public void StartQrPlacement()
     {
-        currentAction = 2;
-        placementScript.StartQrMockPlacement();
+        placementScript.enabled = false;
+        currentPhase = 2;
+        cancelButton.SetActive(false);
+        backButton.SetActive(true);
         qrPlacementNotice.SetActive(true);
         continueButton.SetActive(true);
-        printingScreen.SetActive(false);
+        printingButton.SetActive(false);
+        placementScript.StartQrMockPlacement();
+        placementScript.enabled = true;
     }
 
     public void AskForPrint()
     {
-        currentAction = 3;
+        placementScript.enabled = false;
+        currentPhase = 3;
         placementScript.FinishPlacement();
         continueButton.SetActive(false);
-        printingScreen.SetActive(true);
+        printingButton.SetActive(true);
+        placementScript.enabled = true;
     }
-    
+
 
     public void ReceiveFinalParameters()
     {
@@ -99,13 +123,14 @@ public class CreationManager : MonoBehaviour
         contentParameters.Width = finalParams.Width;
         contentParameters.Height = finalParams.Height;
         placementScript.enabled = false;
-       
+        printingButton.SetActive(false);
+
         // TODO show success pop up and move on to other scene
     }
 
     public void GoBack()
     {
-        int goToAction = currentAction - 1;
+        int goToAction = currentPhase - 1;
         if (goToAction >= 0)
         {
             actions[goToAction].Invoke();
@@ -119,7 +144,7 @@ public class CreationManager : MonoBehaviour
 
     public void Continue()
     {
-        int goToAction = currentAction + 1;
+        int goToAction = currentPhase + 1;
         if (goToAction < actions.Count)
         {
             actions[goToAction].Invoke();

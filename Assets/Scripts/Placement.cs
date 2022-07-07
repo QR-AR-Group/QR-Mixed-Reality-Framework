@@ -25,17 +25,23 @@ public class Placement : MonoBehaviour
     private bool planeIsFrozen;
     private bool qrPlacementStarted;
     private bool qrPlacementFinished;
-
-    public bool finished;
+    
     public ContentParameters contentParameters = new ContentParameters();
 
     void Start()
     {
         creationManager = FindObjectOfType<CreationManager>();
         arRaycastManager = FindObjectOfType<ARRaycastManager>();
+        qrCollider = qrMock.GetComponentInChildren<BoxCollider>();
+        DeactivateUI();
+    }
+
+    public void DeactivateUI()
+    {
+        secondaryIndicator.SetActive(false);
+        primaryIndicator.SetActive(false);
         placementPlane.SetActive(false);
         qrMock.SetActive(false);
-        qrCollider = qrMock.GetComponentInChildren<BoxCollider>();
     }
 
     void Update()
@@ -192,7 +198,7 @@ public class Placement : MonoBehaviour
         }
     }
 
-    public void FreezePlane()
+    private void FreezePlane()
     {
         const float minPlaneSize = 0.05f; // 5cm
         planeCollider = placementPlane.GetComponentInChildren<BoxCollider>();
@@ -216,17 +222,14 @@ public class Placement : MonoBehaviour
 
     public void RestartPlanePlacement()
     {
-        enabled = false;
         planeIsFrozen = false;
         qrPlacementStarted = false;
         qrMock.SetActive(false);
         placementPlane.SetActive(false);
-        enabled = true;
     }
 
     public void StartQrMockPlacement()
     {
-        enabled = false;
         qrPlacementFinished = false;
         qrPlacementStarted = true;
 
@@ -241,13 +244,10 @@ public class Placement : MonoBehaviour
             qrMock.transform.rotation = placementPlane.transform.rotation;
             qrMock.SetActive(true);
         }
-
-        enabled = true;
     }
 
     public void FinishPlacement()
     {
-        enabled = false;
         qrPlacementFinished = true;
 
         //Vector3 qrSurfacePoint = qrCollider.ClosestPointOnBounds(placementPlane.transform.position);
@@ -256,13 +256,6 @@ public class Placement : MonoBehaviour
         contentParameters.Offset = qrMock.transform.position - placementPlane.transform.position;
         contentParameters.Height = planeCollider.bounds.size.y; // Plane height
         contentParameters.Width = planeCollider.bounds.size.x; // Plane width
-
-        enabled = true;
-    }
-
-    public ContentParameters GetContentParameters()
-    {
-        return contentParameters;
     }
 
     void OnGUI()
