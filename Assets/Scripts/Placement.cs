@@ -21,7 +21,7 @@ public class Placement : MonoBehaviour
 
     private bool touching;
 
-    private BoxCollider planeCollider;
+    private MeshCollider planeCollider;
     private BoxCollider qrCollider;
     private Plane planeStruct;
 
@@ -210,7 +210,7 @@ public class Placement : MonoBehaviour
     private void FreezePlane()
     {
         const float minPlaneSize = 0.05f; // 5cm
-        planeCollider = placementPlane.GetComponentInChildren<BoxCollider>();
+        planeCollider = placementPlane.GetComponentInChildren<MeshCollider>();
         if (planeCollider.bounds.size.magnitude < minPlaneSize)
         {
             RestartPlanePlacement();
@@ -249,7 +249,7 @@ public class Placement : MonoBehaviour
             // Place QR Mock next to the plane
             MeshFilter filter = placementPlane.GetComponentInChildren<MeshFilter>();
             Vector3 planeTangent = filter.transform.TransformDirection(filter.mesh.tangents[0]).normalized; // x axis of plane
-            float planeWidth = filter.sharedMesh.bounds.size.x;
+            float planeWidth = Mathf.Abs(placementPlane.transform.localScale.x);
             float maxRadius = planeWidth/2 + 0.05f; // 5cm
             Vector3 spawnOffset = Vector3.ClampMagnitude(planeTangent, maxRadius);
             qrMock.transform.position = placementPlane.transform.position + spawnOffset;
@@ -261,15 +261,14 @@ public class Placement : MonoBehaviour
     public void FinishPlacement()
     {
         qrPlacementFinished = true;
-        MeshFilter filter = placementPlane.GetComponentInChildren<MeshFilter>();
         //Vector3 qrSurfacePoint = qrCollider.ClosestPointOnBounds(placementPlane.transform.position);
         //Vector3 planeSurfacePoint = planeCollider.ClosestPointOnBounds(qrMock.transform.position);
         //float distanceBetweenQrAndPlane = Vector3.Distance(qrSurfacePoint, planeSurfacePoint);
         Vector3 offset = qrMock.transform.position - placementPlane.transform.position;
         offset = placementPlane.transform.InverseTransformVector(offset);
         contentParameters.Offset = offset;
-        contentParameters.Width = filter.sharedMesh.bounds.size.x; 
-        contentParameters.Height = filter.sharedMesh.bounds.size.y; 
+        contentParameters.Width = Mathf.Abs(placementPlane.transform.localScale.x); 
+        contentParameters.Height = Mathf.Abs(placementPlane.transform.localScale.y); 
     }
 
     void OnGUI()

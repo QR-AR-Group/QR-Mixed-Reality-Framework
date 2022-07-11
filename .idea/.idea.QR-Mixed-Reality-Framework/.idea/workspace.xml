@@ -3,9 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="38ed2498-d33c-4158-adac-d6a755db4766" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.QR-Mixed-Reality-Framework/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.QR-Mixed-Reality-Framework/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Creation-Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Creation-Scene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/BlankAR.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BlankAR.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Creation-Scene.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Creation-Scene.unity.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/CreationManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CreationManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Outline.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Outline.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
@@ -25,6 +30,9 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SceneChanger.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/Scripts/AddImageTest.cs" />
@@ -43,10 +51,12 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/ImageTracking/ContentContainer.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/ImageTracking/AddQrExample.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/ImageTracking/ImageTargetManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/ScreenLogger.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/ContentParameters.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/CreationManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SceneManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/ScreenLogger.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Placement.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SceneChanger.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/CreationManager.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="2AWUGPET9TcMxn4XRn1XU5GKN4y" />
@@ -121,7 +131,10 @@
       <workItem from="1657099414969" duration="9948000" />
       <workItem from="1657138925689" duration="1755000" />
       <workItem from="1657192487043" duration="7728000" />
-      <workItem from="1657207295834" duration="15309000" />
+      <workItem from="1657207295834" duration="15439000" />
+      <workItem from="1657299793044" duration="2129000" />
+      <workItem from="1657476499120" duration="1997000" />
+      <workItem from="1657539636808" duration="7288000" />
     </task>
     <servers />
   </component>

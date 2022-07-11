@@ -12,6 +12,7 @@ public class CreationManager : MonoBehaviour
     public GameObject startPlacementButton;
 
     public GameObject urlScreen;
+    public GameObject errorLabel;
     public GameObject rectPlacementNotice;
     public GameObject qrPlacementNotice;
     public GameObject printingButton;
@@ -59,12 +60,14 @@ public class CreationManager : MonoBehaviour
             contentParameters.Transparency = transparencyToggle;
             urlScreen.SetActive(false);
             startPlacementButton.SetActive(false);
+            errorLabel.SetActive(false);
             // TODO show success pop up
             StartRectPlacement();
         }
         else
         {
-            // TODO show invalid URL pop up
+            errorLabel.GetComponent<TextMeshProUGUI>().text = "Error: Invalid URL";
+            errorLabel.SetActive(true);
         }
     }
 
@@ -117,7 +120,7 @@ public class CreationManager : MonoBehaviour
         contentParameters.Width = finalParams.Width;
         contentParameters.Height = finalParams.Height;
 
-        // TODO show success pop up maybe move on to scene where the QR is finally displayed and will be printed
+        // TODO show success pop up + move on to different scene
     }
 
     public void GoBack()
@@ -129,8 +132,7 @@ public class CreationManager : MonoBehaviour
         }
         else
         {
-            // TODO Go to previous Scene
-            // SceneManager.LoadScene(previousScene); 
+            SceneChanger.GoToPreviousScene();
         }
     }
 
