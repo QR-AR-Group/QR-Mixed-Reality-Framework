@@ -3,16 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="38ed2498-d33c-4158-adac-d6a755db4766" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.QR-Mixed-Reality-Framework/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.QR-Mixed-Reality-Framework/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/BlankAR.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BlankAR.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Creation-Scene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Creation-Scene.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CreationManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CreationManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/QRCreation.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/QRCreation.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Outline.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Outline.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,9 +48,9 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/ContentParameters.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SceneManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/ScreenLogger.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Placement.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/SceneChanger.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CreationManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Placement.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="2AWUGPET9TcMxn4XRn1XU5GKN4y" />
