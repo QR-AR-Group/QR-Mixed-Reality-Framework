@@ -9,6 +9,7 @@ namespace ImageTracking
 {
     public class ImageTargetManager : MonoBehaviour
     {
+        private ARSessionOrigin _arSessionOrigin;
         public ARTrackedImageManager trackedImageManager;
         private MutableRuntimeReferenceImageLibrary _imageLibrary;
 
@@ -17,9 +18,12 @@ namespace ImageTracking
 
         // for testing purposes
         private string _statusLog;
+        
+        //private bool _doOnce;
 
         private void Start()
         {
+            _arSessionOrigin = FindObjectOfType<ARSessionOrigin>();
             trackedImageManager = GetComponent<ARTrackedImageManager>();
             if (!trackedImageManager)
             {
@@ -47,26 +51,26 @@ namespace ImageTracking
             foreach (ARTrackedImage updatedImage in eventArgs.updated)
             {
                 string identifier = updatedImage.referenceImage.name;
-                UpdateContent(identifier, updatedImage.transform.position, updatedImage.transform.rotation);
-            }
-
-            foreach (ARTrackedImage removedImage in eventArgs.removed)
-            {
-                //string identifier = removedImage.referenceImage.name;
-                //Destroy(_instantiatedContents[identifier].gameObject);
+                // If using MakeContentAppearAt()
+                /*if (!_doOnce)
+                {
+                    PlaceContent(identifier, updatedImage);
+                    _doOnce = true;
+                }*/
+                PlaceContent(identifier, updatedImage);
             }
         }
 
-        public void UpdateContent(string identifier, Vector3 position, Quaternion rotation)
+        public void PlaceContent(string identifier, ARTrackedImage imageTarget)
         {
             VirtualContent content = _instantiatedContents[identifier];
             if (content)
             {
-                content.transform.rotation = rotation;
-                // Workaround, otherwise "content.transform.position = position + content.ScaledOffset" would be possible
-                content.transform.position = position;
-                content.transform.position = content.transform.TransformPoint(content.ScaledOffset);
                 content.transform.localScale = content.Scale;
+                Vector3 newPosition = imageTarget.transform.position +
+                                      imageTarget.transform.TransformDirection(content.Parameters.Offset);
+                //_arSessionOrigin.MakeContentAppearAt(content.transform, newPosition, imageTarget.transform.rotation);
+                content.transform.SetPositionAndRotation(newPosition, imageTarget.transform.rotation);
             }
         }
 
@@ -80,7 +84,7 @@ namespace ImageTracking
                         .GetComponent<VirtualContent>();
                 instantiatedContent.Initialize(content.Parameters);
                 _instantiatedContents[identifier] = instantiatedContent;
-                UpdateContent(identifier, trackedImage.transform.position, trackedImage.transform.rotation);
+                PlaceContent(identifier, trackedImage);
             }
         }
 
@@ -127,10 +131,10 @@ namespace ImageTracking
         void OnGUI()
         {
             // for testing purposes, later on work with pop ups/dialogs
-            /*GUIStyle style = new GUIStyle(GUI.skin.label);
+            GUIStyle style = new GUIStyle(GUI.skin.label);
             style.fontSize = 30;
             style.normal.textColor = Color.magenta;
-            GUI.Label(new Rect(40, 40, Screen.width / 2f, Screen.height), _statusLog, style);*/
+            GUI.Label(new Rect(40, 40, Screen.width / 2f, Screen.height), _statusLog, style);
         }
     }
 }
