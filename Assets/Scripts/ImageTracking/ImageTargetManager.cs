@@ -16,9 +16,6 @@ namespace ImageTracking
         private Dictionary<string, ContentContainer> _prefabDictionary = new Dictionary<string, ContentContainer>();
         private Dictionary<string, VirtualContent> _instantiatedContents = new Dictionary<string, VirtualContent>();
 
-        // for testing purposes
-        private string _statusLog;
-        
         //private bool _doOnce;
 
         private void Start()
@@ -45,7 +42,6 @@ namespace ImageTracking
             foreach (ARTrackedImage trackedImage in eventArgs.added)
             {
                 AssignContent(trackedImage);
-                _statusLog = "Virtual Content instantiated\n" + _statusLog;
             }
 
             foreach (ARTrackedImage updatedImage in eventArgs.updated)
@@ -100,23 +96,15 @@ namespace ImageTracking
                         width);
 
                     yield return new WaitUntil(() => jobState.jobHandle.IsCompleted);
-                    if (jobState.status == AddReferenceImageJobStatus.Success)
+                    if (jobState.status != AddReferenceImageJobStatus.Success)
                     {
-                        _statusLog = "Image successfully added! (You can try scanning it now)\n" + _statusLog;
-                    }
-                    else if (jobState.status == AddReferenceImageJobStatus.ErrorInvalidImage)
-                    {
-                        _statusLog = "The texture is not suitable for tracking and was therefore rejected\n" +
-                                     _statusLog;
-                    }
-                    else
-                    {
-                        _statusLog = $"Adding an image failed with status: {jobState.status}\n" + _statusLog;
+                        throw new NotSupportedException(
+                            $"The texture might not be suitable for tracking. Failed with status: {jobState.status}");
                     }
                 }
                 else
                 {
-                    _statusLog = "Texture format not supported\n" + _statusLog;
+                    throw new NotSupportedException("Texture format of the image is not supported");
                 }
             }
         }
@@ -130,11 +118,6 @@ namespace ImageTracking
 
         void OnGUI()
         {
-            // for testing purposes, later on work with pop ups/dialogs
-            GUIStyle style = new GUIStyle(GUI.skin.label);
-            style.fontSize = 30;
-            style.normal.textColor = Color.magenta;
-            GUI.Label(new Rect(40, 40, Screen.width / 2f, Screen.height), _statusLog, style);
         }
     }
 }
