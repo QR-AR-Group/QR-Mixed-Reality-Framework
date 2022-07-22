@@ -2,11 +2,336 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="38ed2498-d33c-4158-adac-d6a755db4766" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.QR-Mixed-Reality-Framework/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.QR-Mixed-Reality-Framework/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Android.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Android/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Android/AndroidManifest.xml.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Android/LauncherManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Android/LauncherManifest.xml.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Android/baseProjectTemplate.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Android/baseProjectTemplate.gradle.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Android/gradleTemplate.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Android/gradleTemplate.properties.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Android/launcherTemplate.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Android/launcherTemplate.gradle.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Android/mainTemplate.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Android/mainTemplate.gradle.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Lumin.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Lumin/MagicLeapManifestSettings.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Lumin/MagicLeapManifestSettings.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/ZXing.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/ZXing/zxing.unity.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/ZXing/zxing.unity.dll.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/ContentPrefab.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/ContentPrefab.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/QR-example.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/QR-example.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/QR-Tracking.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/QR-Tracking.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/QRPrinter.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/QRPrinter.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/QRScanner.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/QRScanner.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ImageTracking.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ImageTracking/AddQrExample.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ImageTracking/AddQrExample.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ImageTracking/ContentContainer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ImageTracking/ContentContainer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ImageTracking/ContentParameters.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ImageTracking/ContentParameters.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ImageTracking/ImageTargetManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ImageTracking/ImageTargetManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ImageTracking/VirtualContent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ImageTracking/VirtualContent.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Printer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Printer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/QRCode.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/QRCode/QRDemonstrator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/QRCode/QRDemonstrator.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/QRCode/QREncoder.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/QRCode/QREncoder.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/QRCode/QRScanner.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/QRCode/QRScanner.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Documents/QR-AR UI-Mockup.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.QR-Mixed-Reality-Framework/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.QR-Mixed-Reality-Framework/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/QRCreation.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/QRCreation.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Placement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Placement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/BlankAR.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BlankAR.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Square-Span.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Square-Span.unity.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/Assembly-CSharp.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/Mono.Security.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/System.Configuration.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/System.Core.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/System.Xml.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/System.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/Unity.InputSystem.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/Unity.XR.ARCore.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/Unity.XR.ARFoundation.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/Unity.XR.ARSubsystems.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/Unity.XR.Management.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/Unity.XR.OpenXR.Features.ConformanceAutomation.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/Unity.XR.OpenXR.Features.MockRuntime.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/Unity.XR.OpenXR.Features.OculusQuestSupport.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/Unity.XR.OpenXR.Features.RuntimeDebugger.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/Unity.XR.OpenXR.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.AndroidJNIModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.AnimationModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.CoreModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.GridModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.IMGUIModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.InputLegacyModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.InputModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.JSONSerializeModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.ParticleSystemModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.Physics2DModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.PhysicsModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.SharedInternalsModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.SpatialTracking.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.SpriteShapeModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.SubsystemsModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.TextCoreFontEngineModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.TextCoreTextEngineModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.TextRenderingModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.TilemapModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.UI.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.UIElementsModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.UIElementsNativeModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.UIModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.UnityAnalyticsModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.UnityWebRequestModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.VRModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.XRModule.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityEngine.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/UnityLinkerToEditorData.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/Managed/mscorlib.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Assembly-CSharp.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Assembly-CSharp_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods1.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods10.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods11.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods2.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods3.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods4.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods5.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods6.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods7.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods8.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/GenericMethods9.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics1.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics10.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics11.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics12.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics13.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics14.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics15.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics16.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics17.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics18.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics19.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics2.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics20.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics21.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics22.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics23.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics24.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics25.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics26.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics27.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics28.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics29.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics3.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics30.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics31.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics32.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics33.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics34.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics35.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics36.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics37.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics38.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics39.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics4.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics40.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics41.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics42.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics43.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics5.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics6.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics7.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics8.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Generics9.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppCCFieldValuesTable.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppCCTypeValuesTable.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppCCalculateFieldValues.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppCCalculateFieldValues1.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppCCalculateTypeValues.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppCodeRegistration.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppGenericAdjustorThunkTable.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppGenericClassTable.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppGenericInstDefinitions.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppGenericMethodDefinitions.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppGenericMethodPointerTable.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppGenericMethodTable.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppInteropDataTable.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppInvokerTable.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppMetadataRegistration.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppMetadataUsage.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppReversePInvokeWrapperTable.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppRgctxTable.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Il2CppTypeDefinitions.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Mono.Security.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Mono.Security_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Configuration.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Configuration_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Core.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Core_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Xml.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.Xml_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System1.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System2.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System3.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/System_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.InputSystem.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.InputSystem1.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.InputSystem10.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.InputSystem2.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.InputSystem3.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.InputSystem4.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.InputSystem5.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.InputSystem6.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.InputSystem7.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.InputSystem8.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.InputSystem9.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.InputSystem_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.XR.ARCore.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.XR.ARCore_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.XR.ARFoundation.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.XR.ARFoundation1.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.XR.ARFoundation_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.XR.ARSubsystems.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.XR.ARSubsystems1.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.XR.ARSubsystems_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.XR.Management.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.XR.Management_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.XR.OpenXR.Features.ConformanceAutomation.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.XR.OpenXR.Features.ConformanceAutomation_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.XR.OpenXR.Features.MockRuntime.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.XR.OpenXR.Features.MockRuntime_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.XR.OpenXR.Features.OculusQuestSupport.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.XR.OpenXR.Features.OculusQuestSupport_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.XR.OpenXR.Features.RuntimeDebugger.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.XR.OpenXR.Features.RuntimeDebugger_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.XR.OpenXR.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/Unity.XR.OpenXR_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.AndroidJNIModule.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.AndroidJNIModule_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.AnimationModule.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.AnimationModule_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.CoreModule.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.CoreModule1.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.CoreModule2.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.CoreModule_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.GridModule.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.GridModule_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.IMGUIModule.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.IMGUIModule1.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.IMGUIModule_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.InputLegacyModule.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.InputLegacyModule_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.InputModule.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.InputModule_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.JSONSerializeModule.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.JSONSerializeModule_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.ParticleSystemModule.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.ParticleSystemModule_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.Physics2DModule.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.Physics2DModule_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.PhysicsModule.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.PhysicsModule_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.SharedInternalsModule.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.SharedInternalsModule_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.SpatialTracking.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.SpatialTracking_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.SpriteShapeModule.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.SpriteShapeModule_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.SubsystemsModule.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.SubsystemsModule_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.TextCoreFontEngineModule.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.TextCoreFontEngineModule_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.TextCoreTextEngineModule.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.TextCoreTextEngineModule1.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.TextCoreTextEngineModule2.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.TextCoreTextEngineModule3.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.TextCoreTextEngineModule_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.TextRenderingModule.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.TextRenderingModule_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.TilemapModule.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.TilemapModule_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UI.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UI1.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UI2.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UI3.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule1.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule10.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule11.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule12.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule2.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule3.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule4.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule5.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule6.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule7.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule8.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule9.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsModule_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsNativeModule.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIElementsNativeModule_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIModule.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UIModule_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UI_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UnityAnalyticsModule.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UnityAnalyticsModule_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UnityWebRequestModule.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.UnityWebRequestModule_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.VRModule.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.VRModule_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.XRModule.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.XRModule_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnityEngine_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/UnresolvedVirtualCallStubs.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/__Generated.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/__Generated_CodeGen.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib1.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib10.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib11.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib12.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib13.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib14.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib15.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib16.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib17.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib2.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib3.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib4.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib5.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib6.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib7.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib8.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib9.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test1.0_BackUpThisFolder_ButDontShipItWithYourGame/il2cppOutput/mscorlib_CodeGen.c" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +350,22 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Users/Adrian/UnityStuff/AR-Course/QR-Mixed-Reality-Framework/Assets/Scenes/QRCreation.unity.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adrian/UnityStuff/AR-Course/QR-Mixed-Reality-Framework/Assets/Scenes/Rect-Placement.unity.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adrian/UnityStuff/AR-Course/QR-Mixed-Reality-Framework/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adrian/UnityStuff/AR-Course/QR-Mixed-Reality-Framework/Assets/Scenes/Rect-Placement.unity.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adrian/UnityStuff/AR-Course/QR-Mixed-Reality-Framework/UserSettings/EditorUserSettings.asset" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adrian/UnityStuff/AR-Course/QR-Mixed-Reality-Framework/ProjectSettings/EditorBuildSettings.asset" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adrian/UnityStuff/AR-Course/QR-Mixed-Reality-Framework/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adrian/UnityStuff/AR-Course/QR-Mixed-Reality-Framework/Assets/Scenes/Rect-Placement.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adrian/UnityStuff/AR-Course/QR-Mixed-Reality-Framework/ProjectSettings/ProjectSettings.asset" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adrian/UnityStuff/AR-Course/QR-Mixed-Reality-Framework/ProjectSettings/ProjectSettings.asset" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adrian/UnityStuff/AR-Course/QR-Mixed-Reality-Framework/ProjectSettings/EditorBuildSettings.asset" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ContentParameters.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SceneChanger.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adrian/UnityStuff/AR-Course/QR-Mixed-Reality-Framework/UserSettings/EditorUserSettings.asset" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adrian/UnityStuff/AR-Course/QR-Mixed-Reality-Framework/Assets/Scenes/Rect-Placement.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Adrian/UnityStuff/AR-Course/QR-Mixed-Reality-Framework/Assets/Scenes/QRCreation.unity.meta" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -51,6 +391,10 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/SceneChanger.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/CreationManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Placement.cs" />
+      <option value="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" />
+      <option value="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" />
+      <option value="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" />
+      <option value="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="2AWUGPET9TcMxn4XRn1XU5GKN4y" />
